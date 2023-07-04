@@ -16,25 +16,25 @@ class App extends Component {
       <div className="App">
         <View data={this.state.operations} />
         <Keyboard>
-          <Number onClick={this.handleClick} label="C" value="clear" />
-          <Number onClick={this.handleClick} label="!" value="!" />
-          <Number onClick={this.handleClick} label="%" value="%" />
-          <Number onClick={this.handleClick} label="/" value="/" />
+          <Number onClick={this.handleClick} label="C" bgcolor="gray" value="clear" />
+          <Number onClick={this.handleClick} label="!" bgcolor="gray" value="!" />
+          <Number onClick={this.handleClick} label="%" bgcolor="gray" value="%" />
+          <Number onClick={this.handleClick} label="/" bgcolor="gray" value="/" />
           <Number onClick={this.handleClick} label="7" value="7" />
           <Number onClick={this.handleClick} label="8" value="8" />
           <Number onClick={this.handleClick} label="9" value="9" />
-          <Number onClick={this.handleClick} label="*" value="*" />
+          <Number onClick={this.handleClick} label="*" bgcolor="gray" value="*" />
           <Number onClick={this.handleClick} label="4" value="4" />
           <Number onClick={this.handleClick} label="5" value="5" />
           <Number onClick={this.handleClick} label="6" value="6" />
-          <Number onClick={this.handleClick} label="-" value="-" />
+          <Number onClick={this.handleClick} label="-" bgcolor="gray" value="-" />
           <Number onClick={this.handleClick} label="1" value="1" />
           <Number onClick={this.handleClick} label="2" value="2" />
           <Number onClick={this.handleClick} label="3" value="3" />
-          <Number onClick={this.handleClick} label="+" value="+" />
+          <Number onClick={this.handleClick} label="+" bgcolor="gray" value="+" />
           <Number onClick={this.handleClick} label="0" size="2" value="0" />
           <Number onClick={this.handleClick} label="." value="." />
-          <Number onClick={this.handleClick} label="=" value="equal" />
+          <Number onClick={this.handleClick} label="=" bgcolor="gray" value="equal" />
         </Keyboard>
       </div>
     )

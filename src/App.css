@@ -27,10 +27,10 @@ body {
 }
 
 .View {
-  background: gray;
+  background: white;
   display: list-item;
   color: black;
-  text-shadow: 0 0 5px rgba(89, 195, 195, 0.5);
+  text-shadow: gray;
   justify-content: flex-end;
   align-items: center;
   padding: 0 29px;
@@ -65,6 +65,14 @@ body {
 
 .Number[size="2"] {
   width: 50%;
+}
+
+.Number[bgcolor="gray"] {
+  background: gray;
+}
+
+.color-gray {
+  background: gray;
 }
 
 .Number[val="null"] {
