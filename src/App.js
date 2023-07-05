@@ -49,7 +49,7 @@ class App extends Component {
         })
         break
       case 'equal':
-        this.calculateOperations()
+        this.calculate()
         break
       default:
         this.setState({
@@ -59,7 +59,7 @@ class App extends Component {
     }
 }
 
-calculateOperations = () => {
+calculate = () => {
   try{
     let result = this.state.operations.join('');
     if (result) {
