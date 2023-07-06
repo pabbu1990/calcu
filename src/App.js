@@ -3,18 +3,18 @@ import { Component } from 'react';
 import Number from './components/Number/Number.component';
 import Keyboard from './components/Keyboard/Keyboard.component';
 import View from './components/View/View.component';
-import {evaluate, format} from 'mathjs';
+import {evaluate} from 'mathjs';
 
 class App extends Component {
   constructor() {
     super()
-    this.state = { operations: [] }
+    this.state = { operations: [], displayValue: 0 }
   }
 
  render() {
     return (
       <div className="App">
-        <View data={this.state.operations} />
+        <View data={this.state.displayValue} />
         <Keyboard>
           <Number onClick={this.handleClick} label="C" bgcolor="gray" value="clear" />
           <Number onClick={this.handleClick} label="!" bgcolor="gray" value="!" />
@@ -46,16 +46,30 @@ class App extends Component {
       case 'clear':
         this.setState({
           operations: [],
+          displayValue: 0
         })
         break
       case 'equal':
         this.calculate()
         break
-      default:
+      case '+':
+      case '-':
+      case '%':
+      case '*':
+      case '/':
+        var dispVal = this.state.operations.join('').split(/[^0-9\.!]/g).pop();
         this.setState({
           operations: [...this.state.operations, value],
-        })
-        break
+          displayValue: dispVal
+        });
+        break;
+      default:
+        var tempOperations = [...this.state.operations, value];
+        this.setState({
+          operations: [...this.state.operations, value],
+          displayValue: tempOperations.join('').split(/[^0-9\.!]/g).pop()
+        });
+        break;
     }
 }
 
@@ -64,10 +78,9 @@ calculate = () => {
     let result = this.state.operations.join('');
     if (result) {
       result = evaluate(result);
-      result = format(result, { precision: 14 });
-      result = String(result);
       this.setState({
         operations: [result],
+        displayValue: result
       })
     }
   } catch (err) {
